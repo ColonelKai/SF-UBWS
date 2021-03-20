@@ -1,6 +1,8 @@
 import pygame
 import sys, os
 
+import lib.textdisplay
+
 WIDTH, HEIGHT =  1200, 600
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("UB;UBWS")
@@ -40,8 +42,8 @@ def main():
 		
 
 		WIN.fill(BGCOLOR)
-	
 
+		lib.textdisplay.StartupSequence(WIN, (5,5), 5)
 		# Update Screen
 		pygame.display.update()
 	
