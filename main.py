@@ -1,9 +1,10 @@
 import pygame
 import sys, os
 
-WIDTH, HEIGHT =  900, 500
+WIDTH, HEIGHT =  1200, 600
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("UB;UBWS")
+
 
 # Hardcoded FPS.
 FPS = 60
@@ -30,12 +31,17 @@ def main():
 
 		# check for events here
 		for event in pygame.event.get():
+			# get the pressed keys for future reference:
+			keys = pygame.key.get_pressed()
+		
 			# user quit window
 			if event.type == pygame.QUIT:
 				doGameLoop = False
+		
 
 		WIN.fill(BGCOLOR)
 	
+
 		# Update Screen
 		pygame.display.update()
 	
