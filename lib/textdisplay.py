@@ -1,11 +1,14 @@
 # Text display code for SF;UBWS.
+import time, json, os
 import pygame
-import time, json
 
 #initiate font
 pygame.font.init()
 fontsize = 16
 terminalFont = pygame.font.SysFont('Monospace', fontsize)
+
+with open(os.path.join(os.getcwd(),"data/appinfo.json"), "r") as jsonfile:
+	appinfo = json.load(jsonfile)
 
 # A function that writes shit on the screen bound between 2 coordinates from a dict, timed. mostly used in loading screens.
 # Working principle:
@@ -61,8 +64,8 @@ def SequencedTextDisplay(TextDict, window, startloc, linelimit):
 
 
 
-# just like all the lib files, this assumes it is being called by the main.py, if it doesnt we are FUCKED. lol good luck - past kai
+
 def StartupSequence(window, startloc, linelimit):
-	with open("data/textdata/startup.json") as file:
+	with open(os.path.join(appinfo["parentdir"],"data/textdata/startup.json")) as file:
 		TextDict = json.load(file)
 	SequencedTextDisplay(TextDict, window, startloc, linelimit)
