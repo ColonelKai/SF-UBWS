@@ -1,8 +1,7 @@
 import pygame
-import sys, os, json
+import sys, os, json, threading
 
 import lib.textdisplay
-import lib.eventhandler
 
 WIDTH, HEIGHT =  1200, 600
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -30,6 +29,12 @@ with open(os.path.join(os.getcwd(),"data/appinfo.json"), "r") as jsonfile:
 with open(os.path.join(os.getcwd(), "data/appinfo.json"), "w") as jsonfile:
 	json.dump(appinfo, jsonfile)
 
+# lib.textdisplay.StartupSequence(WIN, (5,5), 5)
+startupseqthread = threading.Thread(target=lib.textdisplay.StartupSequence, args=(WIN, (5,5), 5))
+startupseqthread.start()
+
+WIN.fill(BGCOLOR)
+
 # Main game loop
 def main():
 	clock = pygame.time.Clock()
@@ -44,14 +49,10 @@ def main():
 		for event in pygame.event.get():
 			# get the pressed keys for future reference:
 			keys = pygame.key.get_pressed()
-			lib.eventhandler.KeyControlHander(keys, WIN)
 			# user quit window
 			if event.type == pygame.QUIT:
 				doGameLoop = False
 		
-
-		WIN.fill(BGCOLOR)
-
 		# lib.textdisplay.StartupSequence(WIN, (5,5), 5)
 		# Update Screen
 		pygame.display.update()
