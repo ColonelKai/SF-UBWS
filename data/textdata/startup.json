@@ -1,8 +1,25 @@
 {
 	"1":{
-		"A":".",
-		"B":"..",
-		"C":"...",
-		"D":"DONE"
+		"A":"Starting Bootup",
+		"B":"Starting Bootup.",
+		"C":"Starting Bootup..",
+		"D":"Starting Bootup..."
+	},
+	"2":{
+		"A":"Loading system information.",
+		"B":"Loading system information.",
+		"C":"Loading system information."
+	},
+	"3":{
+		"A":"Welcome to LightBlueOS"
+	},
+	"4":{
+		"A":"Version: 0.0.1"
+	},
+	"5":{
+		"A":"Mode: INT-INF"
+	},
+	"6":{
+		"A":"This is a tst if this doesnt work go fuck yourself"
 	}
 }
