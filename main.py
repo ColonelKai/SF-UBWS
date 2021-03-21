@@ -1,10 +1,11 @@
 import pygame
-import sys, os
+import sys, os, json, threading
+
+import lib.textdisplay
 
 WIDTH, HEIGHT =  1200, 600
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("UB;UBWS")
-
 
 # Hardcoded FPS.
 FPS = 60
@@ -18,6 +19,21 @@ SLOGO = pygame.image.load(os.path.join("data", "photos", "SERAPHIMLOGO.png"))
 SLOGOTRANS = pygame.image.load(os.path.join("data", "photos", "SERAPHIMLOGO_TRANSPARENT.png"))
 pygame.display.set_icon(SLOGOTRANS)
 #endregion
+
+# code to update appinfo.json if needed due to balls balls help me pls aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+with open(os.path.join(os.getcwd(),"data/appinfo.json"), "r") as jsonfile:
+	appinfo = json.load(jsonfile)
+	appinfo["parentdir"] = str(os.path.abspath(os.getcwd()))
+	appinfo["hardcodedFPS"] = FPS
+
+with open(os.path.join(os.getcwd(), "data/appinfo.json"), "w") as jsonfile:
+	json.dump(appinfo, jsonfile)
+
+# lib.textdisplay.StartupSequence(WIN, (5,5), 5)
+startupseqthread = threading.Thread(target=lib.textdisplay.StartupSequence, args=(WIN, (5,5), 5))
+startupseqthread.start()
+
+WIN.fill(BGCOLOR)
 
 # Main game loop
 def main():
@@ -33,18 +49,14 @@ def main():
 		for event in pygame.event.get():
 			# get the pressed keys for future reference:
 			keys = pygame.key.get_pressed()
-		
 			# user quit window
 			if event.type == pygame.QUIT:
 				doGameLoop = False
 		
-
-		WIN.fill(BGCOLOR)
-	
-
+		# lib.textdisplay.StartupSequence(WIN, (5,5), 5)
 		# Update Screen
 		pygame.display.update()
-	
+	# quit game after loop ends
 	pygame.quit()
 
 
