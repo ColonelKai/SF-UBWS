@@ -1,25 +1,71 @@
 {
 	"1":{
-		"A":"Starting Bootup",
-		"B":"Starting Bootup.",
-		"C":"Starting Bootup..",
-		"D":"Starting Bootup..."
+		"A1":"Starting Bootup",
+		"A2":"Starting Bootup",
+		"A3":"Starting Bootup",
+		"A4":"Starting Bootup",
+		"B1":"Starting Bootup.",
+		"B2":"Starting Bootup.",
+		"B3":"Starting Bootup.",
+		"B4":"Starting Bootup.",
+		"C1":"Starting Bootup..",
+		"C2":"Starting Bootup..",
+		"C3":"Starting Bootup..",
+		"C4":"Starting Bootup..",
+		"D1":"Starting Bootup...",
+		"D2":"Starting Bootup...",
+		"D3":"Starting Bootup...",
+		"D4":"Starting Bootup..."
 	},
 	"2":{
-		"A":"Loading system information.",
-		"B":"Loading system information.",
-		"C":"Loading system information."
+		"A1":"Loading system information.",
+		"A2":"Loading system information.",
+		"A3":"Loading system information."
 	},
 	"3":{
-		"A":"Welcome to LightBlueOS"
+		"A1":""
 	},
 	"4":{
-		"A":"Version: 0.0.1"
+		"A1":"Welcome to LightBlueOS"
 	},
 	"5":{
-		"A":"Mode: INT-INF"
+		"A1":"Version: 0.0.1"
 	},
 	"6":{
-		"A":"This is a tst if this doesnt work go fuck yourself"
+		"A1":"Mode: RMT-CTR"
+	},
+	"7":{
+		"A1":"Type: Host Edition"
+	},
+	"8":{
+		"A1":""
+	},
+	"9":{
+		"A1":"Preparing Module Launches - [ .    ]",
+		"B1":"Preparing Module Launches - [ ..   ]",
+		"C1":"Preparing Module Launches - [ ...  ]",
+		"D1":"Preparing Module Launches - [ .... ]",
+		"E1":"Preparing Module Launches - [ DONE ]"
+	},
+	"10":{
+		"A1":"Drone Control Module - [ .    ]",
+		"B1":"Drone Control Module - [ ..   ]",
+		"C1":"Drone Control Module - [ ...  ]",
+		"D1":"Drone Control Module - [ .... ]",
+		"E1":"Drone Control Module - [ DONE ]"
+	},
+	"11":{
+		"A1":"Drone Inventory Manager Module - [ .    ]",
+		"B1":"Drone Inventory Manager Module - [ ..   ]",
+		"C1":"Drone Inventory Manager Module - [ ...  ]",
+		"D1":"Drone Inventory Manager Module - [ .... ]",
+		"E1":"Drone Inventory Manager Module - [ DONE ]"
+	},
+	"12":{
+		"A1":"Drone Vision Transfer Module - [ .    ]",
+		"B1":"Drone Vision Transfer Module - [ ..   ]",
+		"C1":"Drone Vision Transfer Module - [ ...  ]",
+		"D1":"Drone Vision Transfer Module - [ .... ]",
+		"E1":"Drone Vision Transfer Module - [ DONE ]"
 	}
 }

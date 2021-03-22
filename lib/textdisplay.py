@@ -14,7 +14,7 @@ with open(os.path.join(os.getcwd(),"data/appinfo.json"), "r") as jsonfile:
 # A function that writes shit on the screen bound between 2 coordinates from a dict, timed. mostly used in loading screens.
 # Working principle:
 # This will go through all the keys in a dict and will look for keys under that key, and will replace the text with each sub-key each 0.5 second apart.
-# If you want more than a 0.5 second. If you dont want the text to change just put 1 and no more.
+# If you want more than a 0.2 second. If you dont want the text to change just put 1 and no more.
 # Example JSON file:
 # {
 #	"1":{
@@ -43,7 +43,7 @@ def SequencedTextDisplay(TextDict, window, startloc, linelimit):
 				try:
 					# calculate y coordinate of the text depending on which line it is and the font size.
 					xloc = startloc[1] + (ind * fontsize)
-					wipeText = terminalFont.render(textsInLines[elem], False, (BGCOLOR))
+					wipeText = terminalFont.render(textsInLines[elem], True, (BGCOLOR))
 					window.blit(wipeText, (startloc[0], xloc))
 				except:
 					pass
@@ -69,21 +69,23 @@ def SequencedTextDisplay(TextDict, window, startloc, linelimit):
 				# calculate y coordinate of the text depending on which line it is and the font size.
 				xloc = startloc[1] + (ind * fontsize)
 				# create the text surface, think of it as a text sprite.
-				textsurface = terminalFont.render(textsInLines[elem], False, (255,255,255))
+				textsurface = terminalFont.render(textsInLines[elem], True, (255,255,255))
 				# blit that shit onto the screen
 				window.blit(textsurface, (startloc[0], xloc))
-			# the 0.5 second delay i promised!!!
-			time.sleep(0.5)
+			# the 0.2 second delay i promised!!!
+			time.sleep(0.2)
 		# increase the line by 1 to adjust the pixel.
-		if currentLine < 6:
+		if currentLine < linelimit + 1:
 			currentLine += 1
 		else:
 			pass
 
+	return textsInLines
+
 
 
 def StartupSequence(window, startloc, linelimit):
-	time.sleep(0.2)
+	time.sleep(0.5)
 	with open(os.path.join(appinfo["parentdir"],"data/textdata/startup.json")) as file:
 		TextDict = json.load(file)
 	SequencedTextDisplay(TextDict, window, startloc, linelimit)
